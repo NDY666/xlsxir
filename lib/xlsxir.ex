@@ -507,7 +507,7 @@ defmodule Xlsxir do
   defp fill_empty_cells(from, to, line, cells) do
     next_ref = next_col(from)
 
-    if next_ref == to do
+    if next_ref >= to do
       fill_empty_cells(to, to, line, [[from, nil] | cells])
     else
       fill_empty_cells(next_ref, to, line, [[from, nil] | cells])
